@@ -178,7 +178,80 @@ class RegisterViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     @IBAction func register(_ sender: Any) {
         
         
-      
+        self.isValidEmail(email: email.text!)
+        self.isValidPassword(password: password.text!)
+        //self.phoneValidate(contact: contact.text!)
+        self.isValidPincode(value: zip.text!)
+        
+        if (firstName.text!.isEmpty ) {
+       
+            let alertController = UIAlertController(title: "Alert", message: "Enter a valid firstname", preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
+            self.present(alertController, animated: true, completion: nil)
+            
+    }
+        else if(lastName.text!.isEmpty){
+            let alertController = UIAlertController(title: "Alert", message: "Enter a valid lastname", preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
+            self.present(alertController, animated: true, completion: nil)
+            
+        }
+        else if(self.phoneResult == false){
+            
+            let alertController = UIAlertController(title: "Alert", message: "Enter a valid contact number", preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
+            self.present(alertController, animated: true, completion: nil)
+            
+        }
+        else if(address.text!.isEmpty){
+            let alertController = UIAlertController(title: "Alert", message: "Enter a valid address", preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
+            self.present(alertController, animated: true, completion: nil)
+            
+        }
+        else if(city.text!.isEmpty){
+            let alertController = UIAlertController(title: "Alert", message: "Enter a valid city", preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
+            self.present(alertController, animated: true, completion: nil)
+        }
+        else if(state.text!.isEmpty){
+            let alertController = UIAlertController(title: "Alert", message: "Enter a valid state", preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
+            self.present(alertController, animated: true, completion: nil)
+        }
+        else if(self.pinResult == false){
+            let alertController = UIAlertController(title: "Alert", message: "Enter a valid postal code", preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
+            self.present(alertController, animated: true, completion: nil)
+        }
+     
+        else if(self.emailResult == false){
+            
+            let alertController = UIAlertController(title: "Alert", message: "Enter a valid email", preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
+            self.present(alertController, animated: true, completion: nil)
+            
+        }
+        else if(self.passwordResult == false){
+            
+            let alertController = UIAlertController(title: "Alert", message: "Enter a valid password", preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
+            self.present(alertController, animated: true, completion: nil)
+        }
+        else {
+            let alert = UIAlertController(title: "Alert", message: "User registered successfully", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .`default`, handler: { _ in
+                NSLog("The \"OK\" alert occured.")
+            }))
+            self.present(alert, animated: true, completion: nil)
+            
+            // Code to Register in db
+            databaseManagerInstance.register(firstName: firstName.text!, lastName: lastName.text!, contact: contact.text!, address: address.text!, city: city.text!, state: state.text!, zip: zip.text!, email: email.text!, password: password.text!, rank: selectedRank)
+            
+            
+            //ui alert box
+            
+        }
       //  databaseManagerInstance.register(firstName: firstName.text!, lastName: lastName.text!, contact: contact.text!, address: address.text!, city: city.text!, state: state.text!, zip: zip.text!, email: email.text!, password: password.text!, rank: selectedRank)
         
        // databaseManagerInstance.register(firstName: firstName.text!, lastName: lastName.text, contact: contact.text, address: <#T##String#>, city: <#T##String#>, state: <#T##String#>, zip: <#T##String#>, email: <#T##String#>, password: <#T##String#>, rank: <#T##String#>)
