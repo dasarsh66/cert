@@ -64,7 +64,47 @@ class DisasterApprovedTableViewController: UITableViewController {
         let when = DispatchTime.now() + 2 // change 2 to desired number of seconds
         ///Put it in between this
         DispatchQueue.main.asyncAfter(deadline: when) {
-            
+            for xhere in (self.jsonnext as? Array< Dictionary< String, AnyObject > >)!{
+                // if(xhere["disastername"]! as! String == "StinkFly"){
+                let accepted_ids = xhere["accepted_id"] as! [String]
+                let rejected_ids = xhere["rejected_id"] as! [String]
+                let approved_ids = xhere["approved_id"] as! [String]
+                //    print("Final logger Id", loggerID)
+                
+                for yhere in accepted_ids {
+                    if (yhere == self.loggerId ) {
+                        self.boolerA = false
+                    }
+                }
+                
+                for uhere in rejected_ids {
+                    if (uhere == self.loggerId ) {
+                        self.boolerA = false
+                    }
+                }
+                for zhere in approved_ids {
+                    if (zhere == self.loggerId ) {
+                        self.boolerA = true
+                    }
+                }
+                
+                if(self.boolerA) {
+                    //self.disasterType1.append(xhere["disastername"]! as! String)
+                    self.disasterName.append(xhere["disastername"] as! String)
+                    self.disasterType.append(xhere["disasterdropdown"] as! String)
+                    self.disastercity.append(xhere["disastercity"] as! String)
+                    self.disasterLocation.append(xhere["disasteraddress"] as! String)
+                    
+                }
+                
+                self.boolerA = false
+                // print("Printing type1",disasterType1)
+                //  self.appender.append(accepted_ids)
+                //  print("All should be acc printed",self.appender)
+                //     print("All should be rej printed",rejected_ids)
+                //   print("All should be app printed",approved_ids)
+                
+            }
             //  print("printint loggermans id",self.loggerID)
             // var val:String = (x["_id"]?.value(forKey: "$oid") as? String)!
             //  var val:String = (json["_id"]?.value(forKey: "$oid") as? String)!
