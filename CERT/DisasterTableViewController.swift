@@ -83,7 +83,42 @@ class DisasterTableViewController: UITableViewController {
             
               //  print("username is \(x["firstName"]!) and password is \(x["password"])")
                 //self.array1 = x["firstName"]! as! [String]*/
-           
+            for xhere in (self.json as? Array< Dictionary< String, AnyObject > >)!{
+                // if(xhere["disastername"]! as! String == "StinkFly"){
+                let accepted_ids = xhere["accepted_id"] as! [String]
+                let rejected_ids = xhere["rejected_id"] as! [String]
+                let approved_ids = xhere["approved_id"] as! [String]
+                
+                print("Final logger Id", self.loggerId)
+                
+                for yhere in accepted_ids {
+                    if (yhere == self.loggerId ) {
+                        self.booler = false
+                    }
+                }
+                
+                for uhere in rejected_ids {
+                    if (uhere == self.loggerId ) {
+                        self.booler = false
+                    }
+                }
+                for zhere in approved_ids {
+                    if (zhere == self.loggerId ) {
+                        self.booler = false
+                    }
+                }
+                
+                if(self.booler) {
+                    //self.disasterType1.append(xhere["disastername"]! as! String)
+                    self.disasterName.append(xhere["disastername"] as! String)
+                    self.disasterType.append(xhere["disasterdropdown"] as! String)
+                    self.disastercity.append(xhere["disastercity"] as! String)
+                    self.disasterLocation.append(xhere["disasteraddress"] as! String)
+                    
+                }
+                self.booler = true
+                
+            }
             self.array = self.array2
             self.tableView.reloadData()
             self.refresher.endRefreshing()
