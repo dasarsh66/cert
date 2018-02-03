@@ -143,13 +143,13 @@ class RegisterViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     // phone validator starts here
     var phoneResult:Bool = true
     
-    /*func phoneValidate(contact: String){
+    func phoneValidate(contact: String){
         let PHONE_REGEX = "^[0-9]{10}"
         //"^[0-9]{6,14}$"
         let phoneTest = NSPredicate(format: "SELF MATCHES %@", PHONE_REGEX)
         phoneResult =  phoneTest.evaluate(with: contact)
         }
-*/
+
   /*  (BOOL)myMobileNumberValidate:(NSString*)number
     {
     NSString *numberRegEx = @"[0-9]{10}";
@@ -196,13 +196,13 @@ class RegisterViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
             self.present(alertController, animated: true, completion: nil)
             
         }
-        else if(self.phoneResult == false){
+       /* else if(self.phoneResult == false){
             
             let alertController = UIAlertController(title: "Alert", message: "Enter a valid contact number", preferredStyle: .alert)
             alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
             self.present(alertController, animated: true, completion: nil)
             
-        }
+        }*/
         else if(address.text!.isEmpty){
             let alertController = UIAlertController(title: "Alert", message: "Enter a valid address", preferredStyle: .alert)
             alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
