@@ -11,7 +11,7 @@ import UIKit
 class DisasterDetailsViewController: UIViewController {
     
     
-  //  var dis:DisasterTableViewController=DisasterTableViewController()
+    var dis:DisasterTableViewController=DisasterTableViewController()
    /// var fatso:DisasterDetailsViewController=DisasterDetailsViewController()
     
     @IBOutlet weak var disasterType: UILabel!
@@ -40,16 +40,16 @@ class DisasterDetailsViewController: UIViewController {
     func updater(buttonPressValue:String){
         
         //declare parameter as a dictionary which contains string as key and value combination. considering inputs are valid
-        // let pparameters = ["firstName": "firstName","lastName":"[aux, box]"] as [String : Any]
-        //  data: JSON.stringify( { "$set" : { "y" : 5 } } ),
-        //  data: JSON.stringify( { "x" : 2 } ),
-        //
-        //var ind = pparameters.index(forKey: "lastName")
+         let pparameters = ["firstName": "firstName","lastName":"[aux, box]"] as [String : Any]
+          data: JSON.stringify( { "$set" : { "y" : 5 } } ),
+          data: JSON.stringify( { "x" : 2 } ),
         
-        // print(pparameters(ind) as! String)
-        //print("Printing accepted IDs",accepted_id[1])
-        //  accepted_id[1].insert([1,2,3,4,5], at: 0)
-        //  print(accepted_id[2])
+        var ind = pparameters.index(forKey: "lastName")
+        
+         print(pparameters(ind) as! String)
+        print("Printing accepted IDs",accepted_id[1])
+          accepted_id[1].insert([1,2,3,4,5], at: 0)
+         print(accepted_id[2])
         
         
         //var buttonPressValue = buttonPressValue
