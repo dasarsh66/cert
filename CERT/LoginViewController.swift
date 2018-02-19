@@ -72,13 +72,13 @@ class LoginViewController: UIViewController {
                 self.present(alertController, animated: true, completion: nil)
             }
             
-//            var temp = self.json as? Array< Dictionary< String, AnyObject > >
+            var temp = self.json as? Array< Dictionary< String, AnyObject > >
 //          //  print(temp as Any)
 //           // print(temp![2])
-//            if let array1 = self.json.value(forKey: "password") as? [String] {
+            if let array1 = self.json.value(forKey: "password") as? [String] {
 //               // print(array1)
 //                var count:Int = 0
-//                for x in array1 {
+                for x in array1 {
 //                    count+=1
 //                    print(x)
 //
@@ -87,8 +87,8 @@ class LoginViewController: UIViewController {
 //
 //                        self.xa=true
 //                         self.performSegue(withIdentifier: "loginSegue", sender: self)
-//                    }
-//                }
+                    }
+                }
                 /*  for keyWord in array1 {
                  if keyWord == LoginPassword.text!
                  {
