@@ -18,6 +18,13 @@ class RegisterViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     var selectedRank = ""
     let databaseManagerInstance : DatabaseManager = DatabaseManager()
   
+  @IBAction func infoButton{
+  let button = UIButton(type: .infoLight)
+let barButton = UIBarButtonItem(customView: button)
+  }
+  
+  
+  
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
