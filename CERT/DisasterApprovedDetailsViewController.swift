@@ -31,7 +31,11 @@ UINavigationControllerDelegate {
         self.presentViewController(imagePicker, animated: true, completion: nil)
     }
 }
-    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+    let image = info[UIImagePickerControllerOriginalImage] as! UIImage
+    imagePicked.image = image 
+    dismiss(animated:true, completion: nil)
+}
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = disName
