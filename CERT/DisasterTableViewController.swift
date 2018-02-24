@@ -179,7 +179,7 @@ class DisasterTableViewController: UITableViewController {
         
         return disasterName.count
     }
-
+self.navigationItem.title = @"The title";
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)

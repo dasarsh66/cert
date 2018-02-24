@@ -51,7 +51,7 @@ class DisasterDetailsViewController: UIViewController {
           accepted_id[1].insert([1,2,3,4,5], at: 0)
          print(accepted_id[2])
         
-        
+        self.navigationItem.title = @"The title";
         //var buttonPressValue = buttonPressValue
         var arr:[Int] = [1,3,5,9]
         
