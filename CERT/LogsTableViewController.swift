@@ -36,7 +36,7 @@ class LogsTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 1
+        return 2
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -49,6 +49,7 @@ class LogsTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "acceptedCells", for: indexPath)
         
         cell.textLabel?.text = acceptedDisastersNames[indexPath.row]
+		cell2.textLabel?.text = rejecteddDisastersNames[indexPath.row]
         // Configure the cell...
 
         return cell
@@ -66,6 +67,13 @@ class LogsTableViewController: UITableViewController {
             logsDetails?.typeLabelString = self.acceptedDisastersLocations[tableView.indexPathForSelectedRow!.row]
             logsDetails?.locationLabelString = self.acceptedDisastersIntensities[tableView.indexPathForSelectedRow!.row]
         }
+		
+		
+		
+		
+		
+		
+		
     }
     
     
