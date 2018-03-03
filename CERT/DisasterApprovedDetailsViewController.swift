@@ -44,6 +44,53 @@ UINavigationControllerDelegate {
         disasterLoc.text = disLoc
         // Do any additional setup after loading the view.
     }
+	 let chosenImage = imageView.image
+
+    let imageData = UIImageJPEGRepresentation(chosenImage!, 1)
+
+    let uploadUrlString = "https://api.mlab.com/api/1/databases/cert/collections/images?apiKey=F4GTF2uFESKCFCx7q87ZtFmrhtL-A1-j"
+
+    let uploadUrl = URL(string: uploadUrlString)
+
+    
+
+    var postRequest = URLRequest.init(url: uploadUrl!)
+
+   // postRequest.addValue("Client-ID XXXXXX", forHTTPHeaderField: "Authorization")
+
+        ///https://api.mlab.com/api/1/databases/cert/collections/images?apiKey=F4GTF2uFESKCFCx7q87ZtFmrhtL-A1-j
+
+    postRequest.httpMethod = "POST"
+
+    postRequest.httpBody = imageData
+
+    
+
+    let uploadSession = URLSession.shared
+
+    let executePostRequest = uploadSession.dataTask(with: postRequest as URLRequest) { (data, response, error) -> Void in
+
+        if let response = response as? HTTPURLResponse
+
+        {
+
+            print(response.statusCode)
+
+        }
+
+        if let data = data
+
+        {
+
+            let json = String(data: data, encoding: String.Encoding.utf8)
+
+            print("Response data: \(String(describing: json))")
+
+        }
+
+    }
+
+    executePostRequest.resume()
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
