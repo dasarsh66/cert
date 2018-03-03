@@ -228,5 +228,26 @@ class DisasterApprovedTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
+	func imagePickerControllerDidCancel(picker: UIImagePickerController) {
+
+        dismiss(animated: true, completion: nil)
+
+    }
+
+    
+
+    func imagePickerController(picker: UIImagePickerController!, didFinishPickingImage image: UIImage!, editingInfo: NSDictionary!){
+
+        self.dismiss(animated: true, completion: { () -> Void in
+
+            
+
+        })
+
+        
+
+        imageView.image = image
+
+
 
 }
