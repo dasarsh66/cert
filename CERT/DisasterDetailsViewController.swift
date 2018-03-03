@@ -46,7 +46,99 @@ class DisasterDetailsViewController: UIViewController {
 
     }
 
+    extension DisasterApprovedDetailsViewController: ImagePickerDelegate {
+
     
+
+    func wrapperDidPress(_ imagePicker: ImagePickerController, images: [UIImage]) {
+
+        print("sssssssss")
+
+    }
+
+    extension DisasterApprovedDetailsViewController: ImagePickerDelegate {
+
+    
+
+    func wrapperDidPress(_ imagePicker: ImagePickerController, images: [UIImage]) {
+
+        print("sssssssss")
+
+    }
+
+        var imagesStore:[UIImage] = []
+
+    func x() {
+
+    
+
+        var imageNSData:NSData = UIImagePNGRepresentation(imagesStore[0])! as NSData
+
+       // print("base 64 encoded String of the image",imageNSData)
+
+        self.post()
+
+    }
+
+    func doneButtonDidPress(_ imagePicker: ImagePickerController, images: [UIImage]) {
+
+        print("sssssssss")
+
+        imagesStore = images
+
+       /// print(imagesStore,"Printing image storess")
+
+        imageView.image = images[0]
+
+        self.x()
+
+        self.dismiss(animated: true, completion: nil)
+
+         // UIImageWriteToSavedPhotosAlbum(info[UIImagePickerControllerOriginalImage] as! UIImage)
+
+    }
+
+    
+
+    func cancelButtonDidPress(_ imagePicker: ImagePickerController) {
+
+        print("sssssssss")
+
+        self.dismiss(animated: true, completion: nil)
+
+    }
+
+}
+
+    func doneButtonDidPress(_ imagePicker: ImagePickerController, images: [UIImage]) {
+
+        print("sssssssss")
+
+        imagesStore = images
+
+       /// print(imagesStore,"Printing image storess")
+
+        imageView.image = images[0]
+
+        self.x()
+
+        self.dismiss(animated: true, completion: nil)
+
+         // UIImageWriteToSavedPhotosAlbum(info[UIImagePickerControllerOriginalImage] as! UIImage)
+
+    }
+
+    
+
+    func cancelButtonDidPress(_ imagePicker: ImagePickerController) {
+
+        print("sssssssss")
+
+        self.dismiss(animated: true, completion: nil)
+
+    }
+
+}
 
     func doneButtonDidPress(_ imagePicker: ImagePickerController, images: [UIImage]) {
 
