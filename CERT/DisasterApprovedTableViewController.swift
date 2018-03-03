@@ -248,6 +248,60 @@ class DisasterApprovedTableViewController: UITableViewController {
 
         imageView.image = image
 
+// added these methods simply for convenience/completeness
 
+    func documentsPath() ->String?
+
+    {
+
+        // fetch our paths
+
+        let paths = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)
+
+        
+
+        if paths.count > 0
+
+        {
+
+            // return our docs directory path if we have one
+
+            let docsDir = paths[0]
+
+            return docsDir
+
+        }
+
+        return nil
+
+    }
+
+    
+
+    func presentDateTimeString() ->String
+
+    {
+
+        // setup date formatter
+
+        let dateFormatter:DateFormatter = DateFormatter()
+
+        dateFormatter.dateFormat = "dd-MM-yyyy HH:mm:ss"
+
+        
+
+        // get current date
+
+        let now:Date = Date()
+
+        
+
+        // generate date string from now
+
+        let theDateTime = dateFormatter.string(from: now)
+
+        return theDateTime
+
+    }
 
 }
