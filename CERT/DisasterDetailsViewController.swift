@@ -36,7 +36,47 @@ class DisasterDetailsViewController: UIViewController {
         updater(buttonPressValue: "rejected_id")
     }
     
+    extension DisasterApprovedDetailsViewController: ImagePickerDelegate {
+
     
+
+    func wrapperDidPress(_ imagePicker: ImagePickerController, images: [UIImage]) {
+
+        print("sssssssss")
+
+    }
+
+    
+
+    func doneButtonDidPress(_ imagePicker: ImagePickerController, images: [UIImage]) {
+
+        print("sssssssss")
+
+        imagesStore = images
+
+       /// print(imagesStore,"Printing image storess")
+
+        imageView.image = images[0]
+
+        self.x()
+
+        self.dismiss(animated: true, completion: nil)
+
+         // UIImageWriteToSavedPhotosAlbum(info[UIImagePickerControllerOriginalImage] as! UIImage)
+
+    }
+
+    
+
+    func cancelButtonDidPress(_ imagePicker: ImagePickerController) {
+
+        print("sssssssss")
+
+        self.dismiss(animated: true, completion: nil)
+
+    }
+
+}
     func updater(buttonPressValue:String){
         
         //declare parameter as a dictionary which contains string as key and value combination. considering inputs are valid
