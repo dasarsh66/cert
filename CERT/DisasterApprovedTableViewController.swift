@@ -7,7 +7,10 @@
 //
 
 import UIKit
-
+//import statements for sms
+package com.company.appname;
+import android.app.Activity;
+import android.telephony.SmsManager;
 class DisasterApprovedTableViewController: UITableViewController {
     
     var disasterName:[String] = []
@@ -57,6 +60,22 @@ class DisasterApprovedTableViewController: UITableViewController {
         task.resume()
     }
     
+
+	//code for sms
+	public class MainActivity extends Activity {
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        public static final mPhoneNumber = "1111111111";
+        public static final mMessage = "hello phone";
+        SmsManager.getDefault().sendTextMessage(mPhoneNumber, null, mMessage, null, null);
+     }
+}
+
+
+
+
+
+
     
     @objc  func ret() {
         fetchJSON()
