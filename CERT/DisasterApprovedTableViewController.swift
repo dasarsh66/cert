@@ -62,16 +62,43 @@ class DisasterApprovedTableViewController: UITableViewController {
     
 
 	//code for sms
-	public class MainActivity extends Activity {
+	/*public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         public static final mPhoneNumber = "1111111111";
         public static final mMessage = "hello phone";
         SmsManager.getDefault().sendTextMessage(mPhoneNumber, null, mMessage, null, null);
      }
+}*/
+class ViewController: UIViewController, MFMessageComposeViewControllerDelegate {
+
+    @IBOutlet weak var phoneNumber: UITextField!
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+
+    @IBAction func sendText(sender: UIButton) {
+        if (MFMessageComposeViewController.canSendText()) {
+            let controller = MFMessageComposeViewController()
+            controller.body = "Message Body"
+            controller.recipients = [phoneNumber.text]
+            controller.messageComposeDelegate = self
+            self.presentViewController(controller, animated: true, completion: nil)
+        }
+    }
+
+    func messageComposeViewController(controller: MFMessageComposeViewController!, didFinishWithResult result: MessageComposeResult) {
+        //... handle sms screen actions
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+
+    override func viewWillDisappear(animated: Bool) {
+        self.navigationController?.navigationBarHidden = false
+    }
 }
 
-
+// till here this is new work on sms
 
 
 
