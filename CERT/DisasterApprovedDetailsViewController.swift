@@ -92,6 +92,21 @@ UINavigationControllerDelegate {
 	let storageRef = storage.reference()
 	let mountainsRef = storageRef.child("pictures.jpg")
 	let images = storageRef.child("images/pictures.jpg")
+	let uploadTask = riversRef.putFile(from: localFile, metadata: nil) { metadata, error in
+   
+  func uploadMedia(completion: @escaping (_ url: String?) -> Void) { 
+    let storageRef = FIRStorage.storage().reference().child("myImage.png")
+    if let uploadData = UIImagePNGRepresentation(self.myImageView.image!) {
+        storageRef.put(uploadData, metadata: nil) { (metadata, error) in
+            if error != nil {
+                print("error")
+                completion(nil)
+            } else {
+                completion((metadata?.downloadURL()?.absoluteString)!)) 
+                
+            }
+       }
+ }
 
 	
 
