@@ -89,6 +89,11 @@ UINavigationControllerDelegate {
         }
 
     }
+	let storageRef = storage.reference()
+	let mountainsRef = storageRef.child("pictures.jpg")
+	let images = storageRef.child("images/pictures.jpg")
+
+	
 
     executePostRequest.resume()
 
